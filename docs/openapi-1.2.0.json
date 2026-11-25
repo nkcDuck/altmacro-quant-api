@@ -1,0 +1,1168 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Alternative Macro & Economic Indices",
+    "version": "1.2.0",
+    "description": "Institutional-grade alternative macroeconomic indices, leading business-cycle signals, and quantitative regime analytics engineered by stalter (https://stalter.work).\n\nTracks 15 non-traditional leading indicators across four dimensions/categories (with 0-100 cyclical scores, Z-Scores, multi-year history, Big Mac PPP currency valuations, and 2001/2008/2020/2022 historical crisis cosine similarity):\n- consumer (Dimension 1 — Consumer Psychology): lipstick, underwear, rv-leisure, alcohol-scissors\n- manufacturing (Dimension 2 — Physical Manufacturing & Capex): cardboard, heavy-truck, electricity-pulse, skyscraper\n- commodities (Dimension 3 — Cross-Border PPP & Macro Commodities): bigmac, copper-gold, gold-oil, breakfast-inflation\n- labor-credit (Dimension 4 — Labor Psychology, Credit & Comfort Demand): quits-confidence, vegas-credit, comfort-food\n\nTargeted Category & Point-in-Time Filtering:\n- Scope filters (`dimension`, `category`, `/v1/categories/{category}`): Fetch only the indices/dimensions you need instead of all 15.\n- Time filters (`month`, `asOf`, `fromMonth`, `toMonth` in `YYYY-MM`):\n  - `month=YYYY-MM`: Exact calendar month match; returns empty (`null` / `[]`) if an index has no publication for that month (strict non-fallback).\n  - `asOf=YYYY-MM`: Point-in-time snapshot (`<= YYYY-MM`, latest available reading on or before that month); returns empty if none exist.\n  - `fromMonth` / `toMonth`: Inclusive closed/half-open monthly range.\n\nEndpoints & 3-Tier Access (Basic / Pro / Ultra):\n- GET /v1/health (All tiers): Gateway readiness, L1 cache coverage, and active subscription tier\n- GET /v1/catalog (All tiers): 15-index registry & categories metadata (filterable by `dimension` or `category`)\n- GET /v1/categories/{category} (Pro & Ultra full category series up to 24 obs + time filters; Basic returns HTTP 200 previewMode)\n- GET /v1/indices/{slug} (Basic: latest 1 obs / 5 rpm, HTTP 200 previewMode on historical queries; Pro: up to 36 mos / 30 rpm; Ultra: up to 120 mos / 120 rpm)\n- GET /v1/regime-summary (Pro & Ultra full/filtered by `dimension`/`category` & `month`/`asOf`; Basic returns HTTP 200 previewMode summary)\n- GET /v1/crisis-similarity (Ultra full 4-crisis matrix with `month`/`asOf` historical backtest; Basic/Pro return HTTP 200 previewMode label)\n- GET /v1/batch (Ultra full/filtered via `slugs`, `dimension`/`category`, and `month`/`asOf`/`fromMonth`/`toMonth`; Basic/Pro return HTTP 200 previewMode slice)\n\nBuilt on U.S. Government Public Domain series (FRED®, Federal Reserve Board H.10 FX, BLS/JOLTS, BEA, U.S. Census Bureau, EIA, DOT, SEC EDGAR XBRL) and CC BY 4.0 datasets (The Economist Big Mac Index, World Bank Pink Sheet Gold). Raw restricted third-party spot quotes (raw copper, gold, and cocoa spot quotes) are redacted.\n\nNotice & Attribution:\n- This product uses the FRED® API but is not endorsed or certified by the Federal Reserve Bank of St. Louis.\n- Contains data adapted from The Economist Big Mac Index dataset (CC BY 4.0) and World Bank Commodity Price Data (The Pink Sheet, CC BY 4.0).\n- Derived indices incorporate IMF Primary Commodity Price System series retrieved via FRED; IMF does not endorse this product.\n- Corporate revenue fundamentals are parsed from public U.S. SEC EDGAR XBRL filings.\n- Authorized for personal quantitative research, algorithmic backtesting, and internal AI agent workflows under RapidAPI Basic/Pro/Ultra plans. Does not constitute investment advice, securities recommendations, or regulated advisory services.",
+    "contact": {
+      "name": "AltMacro Quant Data (stalter)",
+      "url": "https://stalter.work",
+      "email": "help@stalter.work"
+    },
+    "license": {
+      "name": "CC BY 4.0 (Derived Quantitative Output)",
+      "url": "https://creativecommons.org/licenses/by/4.0/"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://alternative-macro-economic-indices.p.rapidapi.com",
+      "description": "RapidAPI Production Gateway"
+    }
+  ],
+  "security": [
+    {
+      "RapidAPIKey": [],
+      "RapidAPIHost": []
+    }
+  ],
+  "tags": [
+    {
+      "name": "Discovery",
+      "description": "Gateway health diagnostics, category & catalog metadata, mathematical coverage, and upstream compliance notices"
+    },
+    {
+      "name": "Time Series",
+      "description": "Normalized 0-100 scores, Z-Scores, signals, category series, and historical backtesting"
+    },
+    {
+      "name": "Cross-Asset Quant Analytics",
+      "description": "Multi-dimensional macro regime synthesis, historical crisis similarity, and filtered matrix export"
+    }
+  ],
+  "paths": {
+    "/v1/health": {
+      "get": {
+        "tags": ["Discovery"],
+        "operationId": "getHealth",
+        "summary": "Gateway health and cache readiness check",
+        "description": "Returns gateway status, active subscription tier (when proxied via RapidAPI), tracked index count, and L1 in-memory cache coverage. Available across Basic, Pro, and Ultra plans.",
+        "responses": {
+          "200": {
+            "description": "Gateway healthy",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HealthResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/catalog": {
+      "get": {
+        "tags": ["Discovery"],
+        "operationId": "getCatalog",
+        "summary": "List alternative macroeconomic indices, categories, and licensing metadata",
+        "description": "Returns authoritative metadata, category classification, analytical dimension (1-4), licensing status, redacted raw fields, upstream sources, and required upstream attributions across all 15 alternative indices (or filtered by dimension/category). Available across Basic, Pro, and Ultra plans.",
+        "parameters": [
+          {
+            "name": "dimension",
+            "in": "query",
+            "required": false,
+            "description": "Optional filter by analytical dimension (1 = consumer, 2 = manufacturing, 3 = commodities, 4 = labor-credit, or comma-separated e.g. 1,2). Cannot be combined with category (HTTP 400).",
+            "example": "2",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "category",
+            "in": "query",
+            "required": false,
+            "description": "Optional filter by semantic category slug (consumer, manufacturing, commodities, labor-credit, or comma-separated e.g. consumer,manufacturing). Cannot be combined with dimension (HTTP 400).",
+            "example": "manufacturing",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Catalog metadata with required compliance notices",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CatalogResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid dimension or category filter",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too Many Requests — Plan rate limit exceeded",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/categories/{category}": {
+      "get": {
+        "tags": ["Time Series"],
+        "operationId": "getCategoryIndices",
+        "summary": "Retrieve time series for all indices in a specific category (Full: Pro/Ultra; Preview: Basic)",
+        "description": "Fetches sanitized observations for all 3-4 indicators within one macroeconomic category (`consumer`, `manufacturing`, `commodities`, `labor-credit`, or numeric alias `1`..`4`). Pro (36-mo window) and Ultra (120-mo window) support up to 24 observations per index and exact/point-in-time/range time filters; Basic receives HTTP 200 previewMode (first 2 slugs, latest 1 obs).",
+        "parameters": [
+          {
+            "name": "category",
+            "in": "path",
+            "required": true,
+            "description": "Macroeconomic category slug (consumer, manufacturing, commodities, labor-credit; OpenAPI enum lists the 4 canonical slugs while the gateway also accepts numeric dimension aliases 1-4)",
+            "example": "manufacturing",
+            "schema": {
+              "$ref": "#/components/schemas/AltIndexCategory"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "description": "Observations per index (1-24, default 1)",
+            "example": 6,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 24,
+              "default": 1
+            }
+          },
+          {
+            "name": "month",
+            "in": "query",
+            "required": false,
+            "description": "Exact month match in YYYY-MM format (returns [] for indices with no record in that month)",
+            "schema": {
+              "type": "string",
+              "pattern": "^\\d{4}-(0[1-9]|1[0-2])$"
+            }
+          },
+          {
+            "name": "asOf",
+            "in": "query",
+            "required": false,
+            "description": "Point-in-time snapshot on or before YYYY-MM (latest available reading <= asOf; returns [] if none)",
+            "schema": {
+              "type": "string",
+              "pattern": "^\\d{4}-(0[1-9]|1[0-2])$"
+            }
+          },
+          {
+            "name": "fromMonth",
+            "in": "query",
+            "required": false,
+            "description": "Inclusive range lower bound in YYYY-MM format",
+            "schema": {
+              "type": "string",
+              "pattern": "^\\d{4}-(0[1-9]|1[0-2])$"
+            }
+          },
+          {
+            "name": "toMonth",
+            "in": "query",
+            "required": false,
+            "description": "Inclusive range upper bound in YYYY-MM format",
+            "schema": {
+              "type": "string",
+              "pattern": "^\\d{4}-(0[1-9]|1[0-2])$"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sanitized category time-series matrix (or preview slice on Basic plan)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CategoryIndicesResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid limit or time filter parameter",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Unknown category identifier",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too Many Requests — Plan rate limit exceeded",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/indices/{slug}": {
+      "get": {
+        "tags": ["Time Series"],
+        "operationId": "getIndexSeries",
+        "summary": "Retrieve latest snapshot and historical quantitative series for a single index",
+        "description": "Returns sanitized derived scores (0-100 indexValue, Z-Scores, signals, trends, YoY ratios, and PPP valuations) for one alternative economic index. History depth and time filters are enforced by subscription tier (Basic: latest 1 obs only, HTTP 200 previewMode on historical queries; Pro: up to 36 months; Ultra: up to 120 months).",
+        "parameters": [
+          {
+            "name": "slug",
+            "in": "path",
+            "required": true,
+            "description": "Alternative economic index identifier",
+            "example": "cardboard",
+            "schema": {
+              "$ref": "#/components/schemas/AltIndexSlug"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "description": "Number of observations to return. Defaults to 1 on Basic and 14 on Pro/Ultra when omitted; values exceeding the active tier cap (Basic=1, Pro=36, Ultra=120) are clamped to the plan cap rather than rejected.",
+            "example": 14,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 120,
+              "default": 14
+            }
+          },
+          {
+            "name": "month",
+            "in": "query",
+            "required": false,
+            "description": "Exact month match in YYYY-MM format (Pro/Ultra; returns null/[] if missing for that month)",
+            "schema": {
+              "type": "string",
+              "pattern": "^\\d{4}-(0[1-9]|1[0-2])$"
+            }
+          },
+          {
+            "name": "asOf",
+            "in": "query",
+            "required": false,
+            "description": "Point-in-time snapshot <= YYYY-MM (Pro/Ultra; returns null/[] if no observation <= asOf)",
+            "schema": {
+              "type": "string",
+              "pattern": "^\\d{4}-(0[1-9]|1[0-2])$"
+            }
+          },
+          {
+            "name": "fromMonth",
+            "in": "query",
+            "required": false,
+            "description": "Inclusive lower bound filter in YYYY-MM format (Pro/Ultra)",
+            "example": "2025-01",
+            "schema": {
+              "type": "string",
+              "pattern": "^\\d{4}-(0[1-9]|1[0-2])$"
+            }
+          },
+          {
+            "name": "toMonth",
+            "in": "query",
+            "required": false,
+            "description": "Inclusive upper bound filter in YYYY-MM format (Pro/Ultra)",
+            "schema": {
+              "type": "string",
+              "pattern": "^\\d{4}-(0[1-9]|1[0-2])$"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sanitized index snapshot and historical series",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IndexSeriesResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid limit or time filter parameter",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Unknown index slug",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too Many Requests — Plan rate limit exceeded",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/regime-summary": {
+      "get": {
+        "tags": ["Cross-Asset Quant Analytics"],
+        "operationId": "getRegimeSummary",
+        "summary": "Macro regime radar across all 15 indices or a filtered category/month (Full: Pro/Ultra; Preview: Basic)",
+        "description": "Aggregates readings across all 4 dimensions or filtered dimensions/categories (`dimension`, `category`) at the latest reading, an exact `month`, or a point-in-time `asOf`. Returns `overallRegime: null` and `stance: \"no-data\"` if the requested month has no data. Pro and Ultra receive full/filtered breakdowns; Basic receives HTTP 200 previewMode summary.",
+        "parameters": [
+          {
+            "name": "dimension",
+            "in": "query",
+            "required": false,
+            "description": "Optional dimension filter (1..4 or comma-separated e.g. 1,2). Mutually exclusive with category (HTTP 400).",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "category",
+            "in": "query",
+            "required": false,
+            "description": "Optional category filter (consumer, manufacturing, commodities, labor-credit, or comma-separated). Mutually exclusive with dimension (HTTP 400).",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "month",
+            "in": "query",
+            "required": false,
+            "description": "Exact calendar month snapshot (YYYY-MM). Mutually exclusive with asOf (HTTP 400).",
+            "schema": {
+              "type": "string",
+              "pattern": "^\\d{4}-(0[1-9]|1[0-2])$"
+            }
+          },
+          {
+            "name": "asOf",
+            "in": "query",
+            "required": false,
+            "description": "Point-in-time snapshot <= YYYY-MM. Mutually exclusive with month (HTTP 400).",
+            "schema": {
+              "type": "string",
+              "pattern": "^\\d{4}-(0[1-9]|1[0-2])$"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Macro regime synthesis (or preview summary on Basic plan)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RegimeSummaryResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid scope or time filter parameter",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too Many Requests — Plan rate limit exceeded",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/crisis-similarity": {
+      "get": {
+        "tags": ["Cross-Asset Quant Analytics"],
+        "operationId": "getCrisisSimilarity",
+        "summary": "Historical financial crisis cosine similarity diagnostics (Full: Ultra; Preview: Basic/Pro)",
+        "description": "Computes cosine similarity and normalized similarity percentages (0-100%) comparing the 14-indicator Z-Score vector against 2001/2008/2020/2022 crisis signatures. Ultra supports exact `month` or `asOf` backtesting (returning `closestCrisis: null` and `comparisons: []` if fewer than 4 indicators exist for that month); Basic/Pro receive HTTP 200 previewMode label.",
+        "parameters": [
+          {
+            "name": "window",
+            "in": "query",
+            "required": false,
+            "description": "Evaluation snapshot window (use month or asOf for historical snapshots)",
+            "example": "latest",
+            "schema": {
+              "type": "string",
+              "enum": ["latest"],
+              "default": "latest"
+            }
+          },
+          {
+            "name": "month",
+            "in": "query",
+            "required": false,
+            "description": "Exact calendar month historical backtest (YYYY-MM, Ultra plan). Mutually exclusive with asOf (HTTP 400).",
+            "schema": {
+              "type": "string",
+              "pattern": "^\\d{4}-(0[1-9]|1[0-2])$"
+            }
+          },
+          {
+            "name": "asOf",
+            "in": "query",
+            "required": false,
+            "description": "Point-in-time historical backtest <= YYYY-MM (Ultra plan). Mutually exclusive with month (HTTP 400).",
+            "schema": {
+              "type": "string",
+              "pattern": "^\\d{4}-(0[1-9]|1[0-2])$"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Cosine similarity comparison report against 4 historical crises (or preview label on Basic/Pro)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrisisSimilarityResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Unsupported window or invalid time filter parameter",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too Many Requests — Plan rate limit exceeded",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/batch": {
+      "get": {
+        "tags": ["Cross-Asset Quant Analytics"],
+        "operationId": "getBatchIndices",
+        "summary": "Bulk matrix fetch filtered by slugs, category, or time (Full: Ultra; Preview: Basic/Pro)",
+        "description": "Retrieves sanitized historical snapshots across specified `slugs`, a `category`/`dimension` subset, or all 15 indices, optionally filtered by `month`, `asOf`, or `fromMonth`/`toMonth` (Ultra: up to 24 obs per index; Basic/Pro: HTTP 200 previewMode clamped to up to 2 indices and limit=1).",
+        "parameters": [
+          {
+            "name": "slugs",
+            "in": "query",
+            "required": false,
+            "description": "Optional comma-separated list of index slugs (cannot combine with dimension or category). When slugs, dimension, and category are all omitted, returns all 15 indices (or first 2 indices on Basic/Pro previewMode).",
+            "example": "cardboard,copper-gold,gold-oil",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "dimension",
+            "in": "query",
+            "required": false,
+            "description": "Optional dimension filter (1..4 or comma-separated; cannot combine with slugs or category)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "category",
+            "in": "query",
+            "required": false,
+            "description": "Optional category filter (consumer, manufacturing, commodities, labor-credit, or comma-separated; cannot combine with slugs or dimension)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "description": "Observations per index (1-24, default 1)",
+            "example": 1,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 24,
+              "default": 1
+            }
+          },
+          {
+            "name": "month",
+            "in": "query",
+            "required": false,
+            "description": "Exact month YYYY-MM match (returns [] for missing months)",
+            "schema": {
+              "type": "string",
+              "pattern": "^\\d{4}-(0[1-9]|1[0-2])$"
+            }
+          },
+          {
+            "name": "asOf",
+            "in": "query",
+            "required": false,
+            "description": "Point-in-time snapshot <= YYYY-MM",
+            "schema": {
+              "type": "string",
+              "pattern": "^\\d{4}-(0[1-9]|1[0-2])$"
+            }
+          },
+          {
+            "name": "fromMonth",
+            "in": "query",
+            "required": false,
+            "description": "Inclusive lower bound YYYY-MM",
+            "schema": {
+              "type": "string",
+              "pattern": "^\\d{4}-(0[1-9]|1[0-2])$"
+            }
+          },
+          {
+            "name": "toMonth",
+            "in": "query",
+            "required": false,
+            "description": "Inclusive upper bound YYYY-MM",
+            "schema": {
+              "type": "string",
+              "pattern": "^\\d{4}-(0[1-9]|1[0-2])$"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sanitized multi-index batch matrix (or preview slice on Basic/Pro)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BatchResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid slugs, category/dimension, limit, or time filter parameter",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too Many Requests — Plan rate limit exceeded",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "RapidAPIKey": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-RapidAPI-Key"
+      },
+      "RapidAPIHost": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-RapidAPI-Host"
+      }
+    },
+    "schemas": {
+      "AltIndexSlug": {
+        "type": "string",
+        "default": "cardboard",
+        "example": "cardboard",
+        "enum": [
+          "bigmac",
+          "lipstick",
+          "underwear",
+          "cardboard",
+          "heavy-truck",
+          "copper-gold",
+          "rv-leisure",
+          "alcohol-scissors",
+          "electricity-pulse",
+          "skyscraper",
+          "gold-oil",
+          "breakfast-inflation",
+          "quits-confidence",
+          "vegas-credit",
+          "comfort-food"
+        ]
+      },
+      "AltIndexCategory": {
+        "type": "string",
+        "default": "manufacturing",
+        "example": "manufacturing",
+        "enum": [
+          "consumer",
+          "manufacturing",
+          "commodities",
+          "labor-credit"
+        ]
+      },
+      "UpstreamSourceEntry": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "provider": { "type": "string" },
+          "seriesOrDataset": { "type": "string" },
+          "license": { "type": "string" },
+          "commercialRedistributionRaw": {
+            "type": "string",
+            "enum": ["allowed", "allowed-with-attribution", "derived-only"]
+          },
+          "url": { "type": "string", "format": "uri" }
+        }
+      },
+      "TimeFilterMeta": {
+        "type": "object",
+        "properties": {
+          "mode": {
+            "type": "string",
+            "enum": ["latest", "month", "asOf", "range"]
+          },
+          "month": { "type": "string" },
+          "asOf": { "type": "string" },
+          "fromMonth": { "type": "string" },
+          "toMonth": { "type": "string" }
+        }
+      },
+      "MetaEnvelope": {
+        "type": "object",
+        "properties": {
+          "provider": { "type": "string" },
+          "license": { "type": "string" },
+          "subscriptionTier": { "type": "string", "enum": ["BASIC", "PRO", "ULTRA"] },
+          "attributions": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "disclaimer": { "type": "string" },
+          "redactedRawFields": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "redistributionPolicy": { "type": "string" }
+        }
+      },
+      "IndexMetaEnvelope": {
+        "type": "object",
+        "properties": {
+          "slug": { "$ref": "#/components/schemas/AltIndexSlug" },
+          "name": { "type": "string" },
+          "provider": { "type": "string" },
+          "license": { "type": "string" },
+          "licenseClass": {
+            "type": "string",
+            "enum": ["PUBLIC_DOMAIN_US_GOV", "CC_BY_4_0_DERIVED", "MIXED_OPEN_DERIVED_ONLY"]
+          },
+          "attributions": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "disclaimer": { "type": "string" },
+          "redactedRawFields": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "upstreamSources": {
+            "type": "array",
+            "items": { "$ref": "#/components/schemas/UpstreamSourceEntry" }
+          }
+        }
+      },
+      "HealthResponse": {
+        "type": "object",
+        "properties": {
+          "success": { "type": "boolean" },
+          "data": {
+            "type": "object",
+            "properties": {
+              "status": { "type": "string" },
+              "service": { "type": "string" },
+              "version": { "type": "string" },
+              "subscriptionTier": {
+                "type": "string",
+                "enum": ["BASIC", "PRO", "ULTRA"],
+                "description": "Included on RapidAPI-authenticated requests; omitted on unauthenticated liveness probes."
+              },
+              "indicesTracked": { "type": "integer" },
+              "l1CachedIndices": {
+                "type": "integer",
+                "description": "Included on RapidAPI-authenticated requests; omitted on unauthenticated liveness probes."
+              }
+            }
+          },
+          "meta": {
+            "$ref": "#/components/schemas/MetaEnvelope",
+            "description": "Included on RapidAPI-authenticated requests; omitted on unauthenticated liveness probes."
+          }
+        }
+      },
+      "CatalogResponse": {
+        "type": "object",
+        "properties": {
+          "success": { "type": "boolean" },
+          "data": {
+            "type": "object",
+            "properties": {
+              "total": { "type": "integer" },
+              "categories": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "category": { "$ref": "#/components/schemas/AltIndexCategory" },
+                    "dimension": { "type": "integer" },
+                    "name": { "type": "string" },
+                    "slugs": {
+                      "type": "array",
+                      "items": { "$ref": "#/components/schemas/AltIndexSlug" }
+                    }
+                  }
+                }
+              },
+              "indices": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "slug": { "$ref": "#/components/schemas/AltIndexSlug" },
+                    "name": { "type": "string" },
+                    "dimension": { "type": "integer" },
+                    "category": { "$ref": "#/components/schemas/AltIndexCategory" },
+                    "licenseClass": {
+                      "type": "string",
+                      "enum": ["PUBLIC_DOMAIN_US_GOV", "CC_BY_4_0_DERIVED", "MIXED_OPEN_DERIVED_ONLY"]
+                    },
+                    "redactedRawFields": {
+                      "type": "array",
+                      "items": { "type": "string" }
+                    },
+                    "upstreamSources": {
+                      "type": "array",
+                      "items": { "$ref": "#/components/schemas/UpstreamSourceEntry" }
+                    },
+                    "requiredAttributions": {
+                      "type": "array",
+                      "items": { "type": "string" }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "meta": { "$ref": "#/components/schemas/MetaEnvelope" }
+        }
+      },
+      "CategoryIndicesResponse": {
+        "type": "object",
+        "properties": {
+          "success": { "type": "boolean" },
+          "previewMode": { "type": "boolean" },
+          "upgradeRequired": {
+            "type": "string",
+            "enum": ["PRO"],
+            "description": "Included when previewMode is true (Basic plan)."
+          },
+          "upgradeNotice": { "type": "string" },
+          "data": {
+            "type": "object",
+            "properties": {
+              "category": { "$ref": "#/components/schemas/AltIndexCategory" },
+              "dimension": { "type": "integer" },
+              "name": { "type": "string" },
+              "slugs": {
+                "type": "array",
+                "items": { "$ref": "#/components/schemas/AltIndexSlug" }
+              },
+              "count": { "type": "integer" },
+              "limit": { "type": "integer" },
+              "timeFilter": { "$ref": "#/components/schemas/TimeFilterMeta" },
+              "indices": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "array",
+                  "items": { "type": "object" }
+                }
+              }
+            }
+          },
+          "meta": { "$ref": "#/components/schemas/MetaEnvelope" }
+        }
+      },
+      "IndexSeriesResponse": {
+        "type": "object",
+        "properties": {
+          "success": { "type": "boolean" },
+          "previewMode": { "type": "boolean" },
+          "upgradeRequired": {
+            "type": "string",
+            "enum": ["PRO"],
+            "description": "Included when previewMode is true (historical query on Basic plan)."
+          },
+          "upgradeNotice": { "type": "string" },
+          "data": {
+            "type": "object",
+            "properties": {
+              "slug": { "$ref": "#/components/schemas/AltIndexSlug" },
+              "latest": { "type": "object", "nullable": true },
+              "history": {
+                "type": "array",
+                "items": { "type": "object" }
+              }
+            }
+          },
+          "timeFilter": { "$ref": "#/components/schemas/TimeFilterMeta" },
+          "pagination": {
+            "type": "object",
+            "properties": {
+              "returnedCount": { "type": "integer" },
+              "requestedLimit": { "type": "integer" },
+              "appliedLimit": { "type": "integer" },
+              "tierMaxLimit": { "type": "integer" },
+              "subscriptionTier": {
+                "type": "string",
+                "enum": ["BASIC", "PRO", "ULTRA"]
+              }
+            }
+          },
+          "meta": { "$ref": "#/components/schemas/IndexMetaEnvelope" }
+        }
+      },
+      "RegimeSummaryResponse": {
+        "type": "object",
+        "properties": {
+          "success": { "type": "boolean" },
+          "previewMode": { "type": "boolean" },
+          "upgradeRequired": {
+            "type": "string",
+            "enum": ["PRO"],
+            "description": "Included when previewMode is true (Basic plan)."
+          },
+          "upgradeNotice": { "type": "string" },
+          "data": {
+            "type": "object",
+            "properties": {
+              "overallRegime": {
+                "type": "string",
+                "nullable": true,
+                "enum": [
+                  "Expansion",
+                  "Balanced",
+                  "Late-Cycle Inflation",
+                  "Stagflation Stress",
+                  "Defensive Contraction"
+                ]
+              },
+              "avgProCyclicalIndex": { "type": "number", "nullable": true },
+              "breadth": {
+                "type": "object",
+                "properties": {
+                  "expansionCount": { "type": "integer" },
+                  "neutralCount": { "type": "integer" },
+                  "stressCount": { "type": "integer" },
+                  "missingCount": { "type": "integer" }
+                }
+              },
+              "dimensions": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "dimension": { "type": "integer", "minimum": 1, "maximum": 4 },
+                    "name": { "type": "string" },
+                    "avgIndexValue": { "type": "number", "nullable": true },
+                    "avgZScore": { "type": "number", "nullable": true },
+                    "slugs": {
+                      "type": "array",
+                      "items": { "$ref": "#/components/schemas/AltIndexSlug" }
+                    }
+                  }
+                }
+              },
+              "bigMacPppSummary": {
+                "type": "object",
+                "nullable": true,
+                "properties": {
+                  "sourceDate": { "type": "string", "nullable": true },
+                  "fxAsOfDate": { "type": "string", "nullable": true },
+                  "fxSource": { "type": "string", "nullable": true },
+                  "usBasePriceUsd": { "type": "number", "nullable": true },
+                  "countriesTracked": { "type": "integer" },
+                  "undervaluedCount": { "type": "integer" },
+                  "fairCount": { "type": "integer" },
+                  "overvaluedCount": { "type": "integer" },
+                  "avgNonUsValuationPct": { "type": "number", "nullable": true },
+                  "taiwanValuationPct": { "type": "number", "nullable": true }
+                }
+              },
+              "indices": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "object",
+                  "properties": {
+                    "slug": { "$ref": "#/components/schemas/AltIndexSlug" },
+                    "dimension": { "type": "integer", "minimum": 1, "maximum": 4 },
+                    "indexValue": { "type": "number", "nullable": true },
+                    "zScore": { "type": "number", "nullable": true },
+                    "signal": { "type": "string", "nullable": true },
+                    "trend": { "type": "string", "nullable": true },
+                    "dataMonth": { "type": "string", "nullable": true },
+                    "stance": {
+                      "type": "string",
+                      "enum": ["expansion", "neutral", "stress", "valuation", "no-data"]
+                    }
+                  }
+                }
+              },
+              "scope": {
+                "type": "object",
+                "description": "Included on Pro/Ultra when dimension or category filter is supplied; omitted in Basic previewMode.",
+                "properties": {
+                  "dimensions": {
+                    "type": "array",
+                    "items": { "type": "integer" }
+                  },
+                  "categories": {
+                    "type": "array",
+                    "items": { "$ref": "#/components/schemas/AltIndexCategory" }
+                  }
+                }
+              },
+              "timeFilter": {
+                "$ref": "#/components/schemas/TimeFilterMeta",
+                "description": "Included on Pro/Ultra; omitted in Basic previewMode."
+              }
+            }
+          },
+          "meta": { "$ref": "#/components/schemas/MetaEnvelope" }
+        }
+      },
+      "CrisisDriverItem": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string",
+            "enum": [
+              "lipstick",
+              "underwear",
+              "cardboard",
+              "heavy-truck",
+              "copper-gold",
+              "rv-leisure",
+              "alcohol-scissors",
+              "electricity-pulse",
+              "skyscraper",
+              "gold-oil",
+              "breakfast-inflation",
+              "quits-confidence",
+              "vegas-credit",
+              "comfort-food"
+            ]
+          },
+          "currentZ": { "type": "number" },
+          "crisisZ": { "type": "number" },
+          "alignmentProduct": { "type": "number" }
+        }
+      },
+      "CrisisComparisonResult": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "enum": ["dotcom_2001", "gfc_2008", "covid_2020", "inflation_2022"]
+          },
+          "name": { "type": "string" },
+          "period": { "type": "string" },
+          "summary": { "type": "string" },
+          "dimensionsCompared": {
+            "type": "integer",
+            "description": "Included on Ultra tier; omitted on Basic/Pro previewMode."
+          },
+          "cosineSimilarity": {
+            "type": "number",
+            "description": "Included on Ultra tier; omitted on Basic/Pro previewMode."
+          },
+          "similarityPct": {
+            "type": "number",
+            "description": "Included on Ultra tier; omitted on Basic/Pro previewMode."
+          },
+          "topDrivers": {
+            "type": "array",
+            "description": "Included on Ultra tier; omitted on Basic/Pro previewMode.",
+            "items": { "$ref": "#/components/schemas/CrisisDriverItem" }
+          }
+        }
+      },
+      "CrisisSimilarityResponse": {
+        "type": "object",
+        "properties": {
+          "success": { "type": "boolean" },
+          "previewMode": { "type": "boolean" },
+          "upgradeRequired": {
+            "type": "string",
+            "enum": ["ULTRA"],
+            "description": "Included when previewMode is true (Basic/Pro plans)."
+          },
+          "upgradeNotice": { "type": "string" },
+          "data": {
+            "type": "object",
+            "properties": {
+              "window": {
+                "type": "string",
+                "description": "\"latest\" when mode is latest, or requested YYYY-MM from month/asOf."
+              },
+              "timeFilter": {
+                "$ref": "#/components/schemas/TimeFilterMeta",
+                "description": "Included on Ultra tier; omitted on Basic/Pro previewMode."
+              },
+              "dimensionsAvailable": { "type": "integer" },
+              "closestCrisis": {
+                "nullable": true,
+                "allOf": [{ "$ref": "#/components/schemas/CrisisComparisonResult" }]
+              },
+              "comparisons": {
+                "type": "array",
+                "items": { "$ref": "#/components/schemas/CrisisComparisonResult" }
+              }
+            }
+          },
+          "meta": { "$ref": "#/components/schemas/MetaEnvelope" }
+        }
+      },
+      "BatchResponse": {
+        "type": "object",
+        "properties": {
+          "success": { "type": "boolean" },
+          "previewMode": { "type": "boolean" },
+          "upgradeRequired": {
+            "type": "string",
+            "enum": ["ULTRA"],
+            "description": "Included when previewMode is true (Basic/Pro plans)."
+          },
+          "upgradeNotice": { "type": "string" },
+          "data": {
+            "type": "object",
+            "properties": {
+              "count": { "type": "integer" },
+              "limit": { "type": "integer" },
+              "scope": {
+                "type": "object",
+                "description": "Included on Ultra tier when dimension or category filter is supplied; omitted otherwise and in previewMode.",
+                "properties": {
+                  "dimensions": {
+                    "type": "array",
+                    "items": { "type": "integer" }
+                  },
+                  "categories": {
+                    "type": "array",
+                    "items": { "$ref": "#/components/schemas/AltIndexCategory" }
+                  }
+                }
+              },
+              "timeFilter": {
+                "$ref": "#/components/schemas/TimeFilterMeta",
+                "description": "Included on Ultra tier; omitted in Basic/Pro previewMode."
+              },
+              "indices": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "array",
+                  "items": { "type": "object" }
+                }
+              }
+            }
+          },
+          "meta": { "$ref": "#/components/schemas/MetaEnvelope" }
+        }
+      },
+      "ErrorResponse": {
+        "type": "object",
+        "properties": {
+          "success": { "type": "boolean" },
+          "error": { "type": "string" }
+        }
+      }
+    }
+  }
+}

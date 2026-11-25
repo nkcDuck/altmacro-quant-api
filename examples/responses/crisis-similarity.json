@@ -1,0 +1,175 @@
+{
+  "success": true,
+  "data": {
+    "window": "latest",
+    "timeFilter": {
+      "mode": "latest"
+    },
+    "dimensionsAvailable": 14,
+    "closestCrisis": {
+      "id": "inflation_2022",
+      "name": "2022 Inflation & Tightening Cycle",
+      "period": "2022Q2–2022Q4",
+      "summary": "High-frequency grocery inflation and energy shock alongside tight labor and rising financing rates.",
+      "dimensionsCompared": 14,
+      "cosineSimilarity": 0.1036,
+      "similarityPct": 55.18,
+      "topDrivers": [
+        {
+          "slug": "quits-confidence",
+          "currentZ": 2.916,
+          "crisisZ": 1.5,
+          "alignmentProduct": 4.374
+        },
+        {
+          "slug": "gold-oil",
+          "currentZ": -1.893,
+          "crisisZ": -1.8,
+          "alignmentProduct": 3.407
+        },
+        {
+          "slug": "heavy-truck",
+          "currentZ": 3,
+          "crisisZ": 0.2,
+          "alignmentProduct": 0.6
+        }
+      ]
+    },
+    "comparisons": [
+      {
+        "id": "inflation_2022",
+        "name": "2022 Inflation & Tightening Cycle",
+        "period": "2022Q2–2022Q4",
+        "summary": "High-frequency grocery inflation and energy shock alongside tight labor and rising financing rates.",
+        "dimensionsCompared": 14,
+        "cosineSimilarity": 0.1036,
+        "similarityPct": 55.18,
+        "topDrivers": [
+          {
+            "slug": "quits-confidence",
+            "currentZ": 2.916,
+            "crisisZ": 1.5,
+            "alignmentProduct": 4.374
+          },
+          {
+            "slug": "gold-oil",
+            "currentZ": -1.893,
+            "crisisZ": -1.8,
+            "alignmentProduct": 3.407
+          },
+          {
+            "slug": "heavy-truck",
+            "currentZ": 3,
+            "crisisZ": 0.2,
+            "alignmentProduct": 0.6
+          }
+        ]
+      },
+      {
+        "id": "covid_2020",
+        "name": "2020 COVID-19 Lockdown Shock",
+        "period": "2020Q1–2020Q2",
+        "summary": "Extreme on-premise hospitality freeze and oil collapse juxtaposed against e-commerce cardboard surge.",
+        "dimensionsCompared": 14,
+        "cosineSimilarity": -0.6021,
+        "similarityPct": 19.89,
+        "topDrivers": [
+          {
+            "slug": "lipstick",
+            "currentZ": -1.16,
+            "crisisZ": -0.8,
+            "alignmentProduct": 0.928
+          },
+          {
+            "slug": "underwear",
+            "currentZ": -0.665,
+            "crisisZ": -0.9,
+            "alignmentProduct": 0.599
+          },
+          {
+            "slug": "rv-leisure",
+            "currentZ": -0.223,
+            "crisisZ": -1,
+            "alignmentProduct": 0.223
+          }
+        ]
+      },
+      {
+        "id": "dotcom_2001",
+        "name": "2001 Dot-Com Bust",
+        "period": "2000Q4–2001Q3",
+        "summary": "Corporate Capex freeze in heavy trucks and packaging ahead of mild consumer slowdown.",
+        "dimensionsCompared": 14,
+        "cosineSimilarity": -0.6128,
+        "similarityPct": 19.36,
+        "topDrivers": [
+          {
+            "slug": "underwear",
+            "currentZ": -0.665,
+            "crisisZ": -1.5,
+            "alignmentProduct": 0.998
+          },
+          {
+            "slug": "rv-leisure",
+            "currentZ": -0.223,
+            "crisisZ": -1.6,
+            "alignmentProduct": 0.357
+          },
+          {
+            "slug": "electricity-pulse",
+            "currentZ": -0.107,
+            "crisisZ": -0.9,
+            "alignmentProduct": 0.096
+          }
+        ]
+      },
+      {
+        "id": "gfc_2008",
+        "name": "2008 Global Financial Crisis",
+        "period": "2007Q4–2008Q4",
+        "summary": "Broad synchronous collapse across industrial metals, freight, CRE credit, and household durables.",
+        "dimensionsCompared": 14,
+        "cosineSimilarity": -0.6852,
+        "similarityPct": 15.74,
+        "topDrivers": [
+          {
+            "slug": "underwear",
+            "currentZ": -0.665,
+            "crisisZ": -1.8,
+            "alignmentProduct": 1.197
+          },
+          {
+            "slug": "rv-leisure",
+            "currentZ": -0.223,
+            "crisisZ": -2.3,
+            "alignmentProduct": 0.513
+          },
+          {
+            "slug": "electricity-pulse",
+            "currentZ": -0.107,
+            "crisisZ": -1.6,
+            "alignmentProduct": 0.171
+          }
+        ]
+      }
+    ]
+  },
+  "meta": {
+    "provider": "AltMacro Quant Data (engineered by stalter, https://stalter.work)",
+    "license": "CC BY 4.0 (Stalter Derived Quantitative Output)",
+    "subscriptionTier": "ULTRA",
+    "attributions": [
+      "Corporate revenue fundamentals are parsed from public U.S. SEC EDGAR XBRL filings.",
+      "This product uses the FRED® API but is not endorsed or certified by the Federal Reserve Bank of St. Louis.",
+      "Contains commodity benchmark data adapted from World Bank Commodity Price Data (The Pink Sheet, CC BY 4.0).",
+      "Derived indices incorporate IMF Primary Commodity Price System series retrieved via FRED; IMF does not endorse this product."
+    ],
+    "disclaimer": "For macroeconomic, statistical, and quantitative research purposes only. Does not constitute investment advice, securities recommendations, or regulated advisory services.",
+    "redactedRawFields": [
+      "copperPrice",
+      "goldPrice",
+      "cocoaPrice"
+    ],
+    "redistributionPolicy": "Authorized for personal quantitative research, algorithmic backtesting, and internal AI agent workflows under RapidAPI Basic/Pro/Ultra plans. Commercial newsletter republication and raw upstream resale are prohibited."
+  }
+}

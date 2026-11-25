@@ -1,0 +1,172 @@
+{
+  "success": true,
+  "data": {
+    "total": 4,
+    "categories": [
+      {
+        "category": "manufacturing",
+        "dimension": 2,
+        "name": "Physical Manufacturing, Packaging & Capex",
+        "slugs": [
+          "cardboard",
+          "heavy-truck",
+          "electricity-pulse",
+          "skyscraper"
+        ]
+      }
+    ],
+    "indices": [
+      {
+        "slug": "cardboard",
+        "name": "Cardboard Box Index",
+        "dimension": 2,
+        "category": "manufacturing",
+        "licenseClass": "PUBLIC_DOMAIN_US_GOV",
+        "redactedRawFields": [],
+        "upstreamSources": [
+          {
+            "id": "FRED:IPN32221S",
+            "provider": "Board of Governors of the Federal Reserve System (via FRED)",
+            "seriesOrDataset": "Industrial Production: Paperboard Container Manufacturing",
+            "license": "U.S. Government Public Domain (17 U.S.C. § 105)",
+            "commercialRedistributionRaw": "allowed",
+            "url": "https://fred.stlouisfed.org/series/IPN32221S"
+          },
+          {
+            "id": "FRED:PCU322211322211",
+            "provider": "U.S. Bureau of Labor Statistics (via FRED)",
+            "seriesOrDataset": "Producer Price Index: Corrugated and Solid Fiber Box Manufacturing",
+            "license": "U.S. Government Public Domain (17 U.S.C. § 105)",
+            "commercialRedistributionRaw": "allowed",
+            "url": "https://fred.stlouisfed.org/series/PCU322211322211"
+          }
+        ],
+        "requiredAttributions": [
+          "This product uses the FRED® API but is not endorsed or certified by the Federal Reserve Bank of St. Louis."
+        ]
+      },
+      {
+        "slug": "heavy-truck",
+        "name": "Heavy Truck & Freight Index",
+        "dimension": 2,
+        "category": "manufacturing",
+        "licenseClass": "PUBLIC_DOMAIN_US_GOV",
+        "redactedRawFields": [],
+        "upstreamSources": [
+          {
+            "id": "FRED:HTRUCKSSAAR",
+            "provider": "U.S. Bureau of Economic Analysis (via FRED)",
+            "seriesOrDataset": "Motor Vehicle Retail Sales: Heavy Weight Trucks",
+            "license": "U.S. Government Public Domain (17 U.S.C. § 105)",
+            "commercialRedistributionRaw": "allowed",
+            "url": "https://fred.stlouisfed.org/series/HTRUCKSSAAR"
+          },
+          {
+            "id": "FRED:TSIFRGHT",
+            "provider": "U.S. Bureau of Transportation Statistics (via FRED)",
+            "seriesOrDataset": "Transportation Services Index: Freight",
+            "license": "U.S. Government Public Domain (17 U.S.C. § 105)",
+            "commercialRedistributionRaw": "allowed",
+            "url": "https://fred.stlouisfed.org/series/TSIFRGHT"
+          },
+          {
+            "id": "FRED:GASDESW",
+            "provider": "U.S. Energy Information Administration (via FRED)",
+            "seriesOrDataset": "US No 2 Diesel Retail Prices",
+            "license": "U.S. Government Public Domain (17 U.S.C. § 105)",
+            "commercialRedistributionRaw": "allowed",
+            "url": "https://fred.stlouisfed.org/series/GASDESW"
+          }
+        ],
+        "requiredAttributions": [
+          "This product uses the FRED® API but is not endorsed or certified by the Federal Reserve Bank of St. Louis."
+        ]
+      },
+      {
+        "slug": "electricity-pulse",
+        "name": "Industrial Electricity Pulse Index",
+        "dimension": 2,
+        "category": "manufacturing",
+        "licenseClass": "PUBLIC_DOMAIN_US_GOV",
+        "redactedRawFields": [],
+        "upstreamSources": [
+          {
+            "id": "FRED:IPG2211S",
+            "provider": "Board of Governors of the Federal Reserve System (via FRED)",
+            "seriesOrDataset": "Industrial Production: Electric Power Generation, Transmission, and Distribution",
+            "license": "U.S. Government Public Domain (17 U.S.C. § 105)",
+            "commercialRedistributionRaw": "allowed",
+            "url": "https://fred.stlouisfed.org/series/IPG2211S"
+          },
+          {
+            "id": "FRED:CAPUTLG2211S",
+            "provider": "Board of Governors of the Federal Reserve System (via FRED)",
+            "seriesOrDataset": "Capacity Utilization: Electric Power Generation, Transmission, and Distribution",
+            "license": "U.S. Government Public Domain (17 U.S.C. § 105)",
+            "commercialRedistributionRaw": "allowed",
+            "url": "https://fred.stlouisfed.org/series/CAPUTLG2211S"
+          },
+          {
+            "id": "FRED:IPMAN",
+            "provider": "Board of Governors of the Federal Reserve System (via FRED)",
+            "seriesOrDataset": "Industrial Production: Manufacturing",
+            "license": "U.S. Government Public Domain (17 U.S.C. § 105)",
+            "commercialRedistributionRaw": "allowed",
+            "url": "https://fred.stlouisfed.org/series/IPMAN"
+          }
+        ],
+        "requiredAttributions": [
+          "This product uses the FRED® API but is not endorsed or certified by the Federal Reserve Bank of St. Louis."
+        ]
+      },
+      {
+        "slug": "skyscraper",
+        "name": "Skyscraper Capex Cycle Index",
+        "dimension": 2,
+        "category": "manufacturing",
+        "licenseClass": "PUBLIC_DOMAIN_US_GOV",
+        "redactedRawFields": [],
+        "upstreamSources": [
+          {
+            "id": "FRED:TLCOMCONS",
+            "provider": "U.S. Census Bureau (via FRED)",
+            "seriesOrDataset": "Total Commercial Construction Spending",
+            "license": "U.S. Government Public Domain (17 U.S.C. § 105)",
+            "commercialRedistributionRaw": "allowed",
+            "url": "https://fred.stlouisfed.org/series/TLCOMCONS"
+          },
+          {
+            "id": "FRED:TTLCONS",
+            "provider": "U.S. Census Bureau (via FRED)",
+            "seriesOrDataset": "Total Construction Spending",
+            "license": "U.S. Government Public Domain (17 U.S.C. § 105)",
+            "commercialRedistributionRaw": "allowed",
+            "url": "https://fred.stlouisfed.org/series/TTLCONS"
+          },
+          {
+            "id": "FRED:DRCRELEXFACBS",
+            "provider": "Board of Governors of the Federal Reserve System (via FRED)",
+            "seriesOrDataset": "Delinquency Rate on Commercial Real Estate Loans, All Commercial Banks",
+            "license": "U.S. Government Public Domain (17 U.S.C. § 105)",
+            "commercialRedistributionRaw": "allowed",
+            "url": "https://fred.stlouisfed.org/series/DRCRELEXFACBS"
+          }
+        ],
+        "requiredAttributions": [
+          "This product uses the FRED® API but is not endorsed or certified by the Federal Reserve Bank of St. Louis."
+        ]
+      }
+    ]
+  },
+  "meta": {
+    "provider": "AltMacro Quant Data (engineered by stalter, https://stalter.work)",
+    "license": "CC BY 4.0 (Stalter Derived Quantitative Output)",
+    "subscriptionTier": "ULTRA",
+    "attributions": [
+      "This product uses the FRED® API but is not endorsed or certified by the Federal Reserve Bank of St. Louis."
+    ],
+    "disclaimer": "For macroeconomic, statistical, and quantitative research purposes only. Does not constitute investment advice, securities recommendations, or regulated advisory services.",
+    "redactedRawFields": [],
+    "redistributionPolicy": "Authorized for personal quantitative research, algorithmic backtesting, and internal AI agent workflows under RapidAPI Basic/Pro/Ultra plans. Commercial newsletter republication and raw upstream resale are prohibited."
+  }
+}

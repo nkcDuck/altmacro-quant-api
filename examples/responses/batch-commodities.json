@@ -1,0 +1,1278 @@
+{
+  "success": true,
+  "data": {
+    "count": 4,
+    "limit": 6,
+    "scope": {
+      "dimensions": [
+        3
+      ],
+      "categories": [
+        "commodities"
+      ]
+    },
+    "timeFilter": {
+      "mode": "latest"
+    },
+    "indices": {
+      "bigmac": [
+        {
+          "countries": [
+            {
+              "country": "🇺🇸 United States",
+              "localPrice": 6.22,
+              "usdPrice": 6.22,
+              "ppp": 1,
+              "rawIdx": 0,
+              "valuation": 0,
+              "status": "baseline",
+              "currency": "USD",
+              "rate": 1
+            },
+            {
+              "country": "🇹🇼 Taiwan",
+              "localPrice": 78,
+              "usdPrice": 2.37,
+              "ppp": 0.38,
+              "valuation": -61.96,
+              "status": "undervalued",
+              "currency": "TWD",
+              "rate": 32.97
+            },
+            {
+              "country": "🇨🇳 China",
+              "localPrice": 26.5,
+              "usdPrice": 3.97,
+              "ppp": 0.64,
+              "valuation": -36.19,
+              "status": "undervalued",
+              "currency": "CNY",
+              "rate": 6.677
+            },
+            {
+              "country": "🇯🇵 Japan",
+              "localPrice": 500,
+              "usdPrice": 3.15,
+              "ppp": 0.51,
+              "valuation": -49.37,
+              "status": "undervalued",
+              "currency": "JPY",
+              "rate": 158.76
+            },
+            {
+              "country": "🇰🇷 South Korea",
+              "localPrice": 5700,
+              "usdPrice": 4.25,
+              "ppp": 0.68,
+              "valuation": -31.73,
+              "status": "undervalued",
+              "currency": "KRW",
+              "rate": 1342.41
+            },
+            {
+              "country": "🇬🇧 Britain",
+              "localPrice": 5.49,
+              "usdPrice": 7.19,
+              "ppp": 1.16,
+              "valuation": 15.66,
+              "status": "overvalued",
+              "currency": "GBP",
+              "rate": 1.3104
+            },
+            {
+              "country": "🇪🇺 Euro area",
+              "localPrice": 6.19,
+              "usdPrice": 6.8,
+              "ppp": 1.09,
+              "valuation": 9.28,
+              "status": "fair",
+              "currency": "EUR",
+              "rate": 1.0981
+            },
+            {
+              "country": "🇨🇭 Switzerland",
+              "localPrice": 7.3,
+              "usdPrice": 8.7,
+              "ppp": 1.4,
+              "valuation": 39.82,
+              "status": "overvalued",
+              "currency": "CHF",
+              "rate": 0.8394
+            },
+            {
+              "country": "🇦🇺 Australia",
+              "localPrice": 8.5,
+              "usdPrice": 5.64,
+              "ppp": 0.91,
+              "valuation": -9.27,
+              "status": "fair",
+              "currency": "AUD",
+              "rate": 0.6639
+            },
+            {
+              "country": "🇨🇦 Canada",
+              "localPrice": 8.17,
+              "usdPrice": 5.7,
+              "ppp": 0.92,
+              "valuation": -8.29,
+              "status": "fair",
+              "currency": "CAD",
+              "rate": 1.4323
+            },
+            {
+              "country": "🇧🇷 Brazil",
+              "localPrice": 23.9,
+              "usdPrice": 4.02,
+              "ppp": 0.65,
+              "valuation": -35.41,
+              "status": "undervalued",
+              "currency": "BRL",
+              "rate": 5.9488
+            },
+            {
+              "country": "🇮🇳 India",
+              "localPrice": 236.25,
+              "usdPrice": 2.55,
+              "ppp": 0.41,
+              "valuation": -59.01,
+              "status": "undervalued",
+              "currency": "INR",
+              "rate": 92.67
+            },
+            {
+              "country": "🇹🇭 Thailand",
+              "localPrice": 135,
+              "usdPrice": 3.98,
+              "ppp": 0.64,
+              "valuation": -36.03,
+              "status": "undervalued",
+              "currency": "THB",
+              "rate": 33.93
+            },
+            {
+              "country": "🇸🇬 Singapore",
+              "localPrice": 7.45,
+              "usdPrice": 5.78,
+              "ppp": 0.93,
+              "valuation": -7.1,
+              "status": "fair",
+              "currency": "SGD",
+              "rate": 1.2893
+            },
+            {
+              "country": "🇭🇰 Hong Kong",
+              "localPrice": 25.5,
+              "usdPrice": 3.25,
+              "ppp": 0.52,
+              "valuation": -47.69,
+              "status": "undervalued",
+              "currency": "HKD",
+              "rate": 7.837
+            }
+          ],
+          "basePrice": 6.22,
+          "sourceDate": "2026-07-01",
+          "fxSource": "FRED H.10",
+          "fxAsOfDate": "2026-11-20",
+          "timestamp": "2026-11-24T22:17:05.258Z"
+        },
+        {
+          "countries": [
+            {
+              "country": "🇺🇸 United States",
+              "localPrice": 6.22,
+              "usdPrice": 6.22,
+              "ppp": 1,
+              "rawIdx": 0,
+              "status": "baseline",
+              "currency": "USD",
+              "rate": 1
+            },
+            {
+              "country": "🇹🇼 Taiwan",
+              "localPrice": 78,
+              "usdPrice": 2.42,
+              "ppp": 0.39,
+              "valuation": -61.04,
+              "status": "undervalued",
+              "currency": "TWD",
+              "rate": 32.1875
+            },
+            {
+              "country": "🇨🇳 China",
+              "localPrice": 26.5,
+              "usdPrice": 3.91,
+              "ppp": 0.63,
+              "valuation": -37.08,
+              "status": "undervalued",
+              "currency": "CNY",
+              "rate": 6.7708
+            },
+            {
+              "country": "🇯🇵 Japan",
+              "localPrice": 500,
+              "usdPrice": 3.08,
+              "ppp": 0.5,
+              "valuation": -50.42,
+              "status": "undervalued",
+              "currency": "JPY",
+              "rate": 162.135
+            },
+            {
+              "country": "🇰🇷 South Korea",
+              "localPrice": 5700,
+              "usdPrice": 3.84,
+              "ppp": 0.62,
+              "valuation": -38.33,
+              "status": "undervalued",
+              "currency": "KRW",
+              "rate": 1485.9
+            },
+            {
+              "country": "🇬🇧 Britain",
+              "localPrice": 5.49,
+              "usdPrice": 7.4,
+              "ppp": 1.19,
+              "valuation": 18.97,
+              "status": "overvalued",
+              "currency": "GBP",
+              "rate": 1.3479450577594456
+            },
+            {
+              "country": "🇪🇺 Euro area",
+              "localPrice": 6.19,
+              "usdPrice": 7.08,
+              "ppp": 1.14,
+              "valuation": 13.81,
+              "status": "overvalued",
+              "currency": "EUR",
+              "rate": 1.143654433376411
+            },
+            {
+              "country": "🇨🇭 Switzerland",
+              "localPrice": 7.3,
+              "usdPrice": 9.04,
+              "ppp": 1.45,
+              "valuation": 45.37,
+              "status": "overvalued",
+              "currency": "CHF",
+              "rate": 0.80735
+            },
+            {
+              "country": "🇦🇺 Australia",
+              "localPrice": 8.5,
+              "usdPrice": 5.95,
+              "ppp": 0.96,
+              "valuation": -4.35,
+              "status": "fair",
+              "currency": "AUD",
+              "rate": 0.6999499999999977
+            },
+            {
+              "country": "🇨🇦 Canada",
+              "localPrice": 8.17,
+              "usdPrice": 5.81,
+              "ppp": 0.93,
+              "valuation": -6.52,
+              "status": "fair",
+              "currency": "CAD",
+              "rate": 1.40515
+            },
+            {
+              "country": "🇧🇷 Brazil",
+              "localPrice": 23.9,
+              "usdPrice": 4.71,
+              "ppp": 0.76,
+              "valuation": -24.35,
+              "status": "undervalued",
+              "currency": "BRL",
+              "rate": 5.07935
+            },
+            {
+              "country": "🇮🇳 India",
+              "localPrice": 236.25,
+              "usdPrice": 2.45,
+              "ppp": 0.39,
+              "valuation": -60.54,
+              "status": "undervalued",
+              "currency": "INR",
+              "rate": 96.26375
+            },
+            {
+              "country": "🇹🇭 Thailand",
+              "localPrice": 135,
+              "usdPrice": 4.02,
+              "ppp": 0.65,
+              "valuation": -35.44,
+              "status": "undervalued",
+              "currency": "THB",
+              "rate": 33.62
+            },
+            {
+              "country": "🇸🇬 Singapore",
+              "localPrice": 7.45,
+              "usdPrice": 5.77,
+              "ppp": 0.93,
+              "valuation": -7.15,
+              "status": "fair",
+              "currency": "SGD",
+              "rate": 1.29005
+            },
+            {
+              "country": "🇭🇰 Hong Kong",
+              "localPrice": 25.5,
+              "usdPrice": 3.25,
+              "ppp": 0.52,
+              "valuation": -47.7,
+              "status": "undervalued",
+              "currency": "HKD",
+              "rate": 7.83895
+            }
+          ],
+          "basePrice": 6.22,
+          "sourceDate": "2026-07-01",
+          "timestamp": "2026-10-31T22:17:13.157Z"
+        },
+        {
+          "countries": [
+            {
+              "country": "🇺🇸 United States",
+              "localPrice": 6.22,
+              "usdPrice": 6.22,
+              "ppp": 1,
+              "rawIdx": 0,
+              "status": "baseline",
+              "currency": "USD",
+              "rate": 1
+            },
+            {
+              "country": "🇹🇼 Taiwan",
+              "localPrice": 78,
+              "usdPrice": 2.42,
+              "ppp": 0.39,
+              "valuation": -61.04,
+              "status": "undervalued",
+              "currency": "TWD",
+              "rate": 32.1875
+            },
+            {
+              "country": "🇨🇳 China",
+              "localPrice": 26.5,
+              "usdPrice": 3.91,
+              "ppp": 0.63,
+              "valuation": -37.08,
+              "status": "undervalued",
+              "currency": "CNY",
+              "rate": 6.7708
+            },
+            {
+              "country": "🇯🇵 Japan",
+              "localPrice": 500,
+              "usdPrice": 3.08,
+              "ppp": 0.5,
+              "valuation": -50.42,
+              "status": "undervalued",
+              "currency": "JPY",
+              "rate": 162.135
+            },
+            {
+              "country": "🇰🇷 South Korea",
+              "localPrice": 5700,
+              "usdPrice": 3.84,
+              "ppp": 0.62,
+              "valuation": -38.33,
+              "status": "undervalued",
+              "currency": "KRW",
+              "rate": 1485.9
+            },
+            {
+              "country": "🇬🇧 Britain",
+              "localPrice": 5.49,
+              "usdPrice": 7.4,
+              "ppp": 1.19,
+              "valuation": 18.97,
+              "status": "overvalued",
+              "currency": "GBP",
+              "rate": 1.3479450577594456
+            },
+            {
+              "country": "🇪🇺 Euro area",
+              "localPrice": 6.19,
+              "usdPrice": 7.08,
+              "ppp": 1.14,
+              "valuation": 13.81,
+              "status": "overvalued",
+              "currency": "EUR",
+              "rate": 1.143654433376411
+            },
+            {
+              "country": "🇨🇭 Switzerland",
+              "localPrice": 7.3,
+              "usdPrice": 9.04,
+              "ppp": 1.45,
+              "valuation": 45.37,
+              "status": "overvalued",
+              "currency": "CHF",
+              "rate": 0.80735
+            },
+            {
+              "country": "🇦🇺 Australia",
+              "localPrice": 8.5,
+              "usdPrice": 5.95,
+              "ppp": 0.96,
+              "valuation": -4.35,
+              "status": "fair",
+              "currency": "AUD",
+              "rate": 0.6999499999999977
+            },
+            {
+              "country": "🇨🇦 Canada",
+              "localPrice": 8.17,
+              "usdPrice": 5.81,
+              "ppp": 0.93,
+              "valuation": -6.52,
+              "status": "fair",
+              "currency": "CAD",
+              "rate": 1.40515
+            },
+            {
+              "country": "🇧🇷 Brazil",
+              "localPrice": 23.9,
+              "usdPrice": 4.71,
+              "ppp": 0.76,
+              "valuation": -24.35,
+              "status": "undervalued",
+              "currency": "BRL",
+              "rate": 5.07935
+            },
+            {
+              "country": "🇮🇳 India",
+              "localPrice": 236.25,
+              "usdPrice": 2.45,
+              "ppp": 0.39,
+              "valuation": -60.54,
+              "status": "undervalued",
+              "currency": "INR",
+              "rate": 96.26375
+            },
+            {
+              "country": "🇹🇭 Thailand",
+              "localPrice": 135,
+              "usdPrice": 4.02,
+              "ppp": 0.65,
+              "valuation": -35.44,
+              "status": "undervalued",
+              "currency": "THB",
+              "rate": 33.62
+            },
+            {
+              "country": "🇸🇬 Singapore",
+              "localPrice": 7.45,
+              "usdPrice": 5.77,
+              "ppp": 0.93,
+              "valuation": -7.15,
+              "status": "fair",
+              "currency": "SGD",
+              "rate": 1.29005
+            },
+            {
+              "country": "🇭🇰 Hong Kong",
+              "localPrice": 25.5,
+              "usdPrice": 3.25,
+              "ppp": 0.52,
+              "valuation": -47.7,
+              "status": "undervalued",
+              "currency": "HKD",
+              "rate": 7.83895
+            }
+          ],
+          "basePrice": 6.22,
+          "sourceDate": "2026-07-01",
+          "timestamp": "2026-09-30T22:17:08.361Z"
+        },
+        {
+          "countries": [
+            {
+              "country": "🇺🇸 United States",
+              "localPrice": 6.22,
+              "usdPrice": 6.22,
+              "ppp": 1,
+              "rawIdx": 0,
+              "status": "baseline",
+              "currency": "USD",
+              "rate": 1
+            },
+            {
+              "country": "🇹🇼 Taiwan",
+              "localPrice": 78,
+              "usdPrice": 2.42,
+              "ppp": 0.39,
+              "valuation": -61.04,
+              "status": "undervalued",
+              "currency": "TWD",
+              "rate": 32.1875
+            },
+            {
+              "country": "🇨🇳 China",
+              "localPrice": 26.5,
+              "usdPrice": 3.91,
+              "ppp": 0.63,
+              "valuation": -37.08,
+              "status": "undervalued",
+              "currency": "CNY",
+              "rate": 6.7708
+            },
+            {
+              "country": "🇯🇵 Japan",
+              "localPrice": 500,
+              "usdPrice": 3.08,
+              "ppp": 0.5,
+              "valuation": -50.42,
+              "status": "undervalued",
+              "currency": "JPY",
+              "rate": 162.135
+            },
+            {
+              "country": "🇰🇷 South Korea",
+              "localPrice": 5700,
+              "usdPrice": 3.84,
+              "ppp": 0.62,
+              "valuation": -38.33,
+              "status": "undervalued",
+              "currency": "KRW",
+              "rate": 1485.9
+            },
+            {
+              "country": "🇬🇧 Britain",
+              "localPrice": 5.49,
+              "usdPrice": 7.4,
+              "ppp": 1.19,
+              "valuation": 18.97,
+              "status": "overvalued",
+              "currency": "GBP",
+              "rate": 1.3479450577594456
+            },
+            {
+              "country": "🇪🇺 Euro area",
+              "localPrice": 6.19,
+              "usdPrice": 7.08,
+              "ppp": 1.14,
+              "valuation": 13.81,
+              "status": "overvalued",
+              "currency": "EUR",
+              "rate": 1.143654433376411
+            },
+            {
+              "country": "🇨🇭 Switzerland",
+              "localPrice": 7.3,
+              "usdPrice": 9.04,
+              "ppp": 1.45,
+              "valuation": 45.37,
+              "status": "overvalued",
+              "currency": "CHF",
+              "rate": 0.80735
+            },
+            {
+              "country": "🇦🇺 Australia",
+              "localPrice": 8.5,
+              "usdPrice": 5.95,
+              "ppp": 0.96,
+              "valuation": -4.35,
+              "status": "fair",
+              "currency": "AUD",
+              "rate": 0.6999499999999977
+            },
+            {
+              "country": "🇨🇦 Canada",
+              "localPrice": 8.17,
+              "usdPrice": 5.81,
+              "ppp": 0.93,
+              "valuation": -6.52,
+              "status": "fair",
+              "currency": "CAD",
+              "rate": 1.40515
+            },
+            {
+              "country": "🇧🇷 Brazil",
+              "localPrice": 23.9,
+              "usdPrice": 4.71,
+              "ppp": 0.76,
+              "valuation": -24.35,
+              "status": "undervalued",
+              "currency": "BRL",
+              "rate": 5.07935
+            },
+            {
+              "country": "🇮🇳 India",
+              "localPrice": 236.25,
+              "usdPrice": 2.45,
+              "ppp": 0.39,
+              "valuation": -60.54,
+              "status": "undervalued",
+              "currency": "INR",
+              "rate": 96.26375
+            },
+            {
+              "country": "🇹🇭 Thailand",
+              "localPrice": 135,
+              "usdPrice": 4.02,
+              "ppp": 0.65,
+              "valuation": -35.44,
+              "status": "undervalued",
+              "currency": "THB",
+              "rate": 33.62
+            },
+            {
+              "country": "🇸🇬 Singapore",
+              "localPrice": 7.45,
+              "usdPrice": 5.77,
+              "ppp": 0.93,
+              "valuation": -7.15,
+              "status": "fair",
+              "currency": "SGD",
+              "rate": 1.29005
+            },
+            {
+              "country": "🇭🇰 Hong Kong",
+              "localPrice": 25.5,
+              "usdPrice": 3.25,
+              "ppp": 0.52,
+              "valuation": -47.7,
+              "status": "undervalued",
+              "currency": "HKD",
+              "rate": 7.83895
+            }
+          ],
+          "basePrice": 6.22,
+          "sourceDate": "2026-07-01",
+          "timestamp": "2026-08-31T22:17:09.448Z"
+        },
+        {
+          "countries": [
+            {
+              "country": "🇺🇸 United States",
+              "localPrice": 6.12,
+              "usdPrice": 6.12,
+              "ppp": 1,
+              "rawIdx": 0,
+              "status": "baseline",
+              "currency": "USD",
+              "rate": 1
+            },
+            {
+              "country": "🇹🇼 Taiwan",
+              "localPrice": 78,
+              "usdPrice": 2.47,
+              "ppp": 0.4,
+              "valuation": -59.63,
+              "status": "undervalued",
+              "currency": "TWD",
+              "rate": 31.5675
+            },
+            {
+              "country": "🇨🇳 China",
+              "localPrice": 25.5,
+              "usdPrice": 3.66,
+              "ppp": 0.6,
+              "valuation": -40.16,
+              "status": "undervalued",
+              "currency": "CNY",
+              "rate": 6.9627
+            },
+            {
+              "country": "🇯🇵 Japan",
+              "localPrice": 480,
+              "usdPrice": 3.03,
+              "ppp": 0.49,
+              "valuation": -50.53,
+              "status": "undervalued",
+              "currency": "JPY",
+              "rate": 158.545
+            },
+            {
+              "country": "🇰🇷 South Korea",
+              "localPrice": 5500,
+              "usdPrice": 3.74,
+              "ppp": 0.61,
+              "valuation": -38.86,
+              "status": "undervalued",
+              "currency": "KRW",
+              "rate": 1469.85
+            },
+            {
+              "country": "🇬🇧 Britain",
+              "localPrice": 5.29,
+              "usdPrice": 7.08,
+              "ppp": 1.16,
+              "valuation": 15.7,
+              "status": "overvalued",
+              "currency": "GBP",
+              "rate": 1.3385447341650158
+            },
+            {
+              "country": "🇪🇺 Euro area",
+              "localPrice": 6.08,
+              "usdPrice": 7.05,
+              "ppp": 1.15,
+              "valuation": 15.26,
+              "status": "overvalued",
+              "currency": "EUR",
+              "rate": 1.1602004826434007
+            },
+            {
+              "country": "🇨🇭 Switzerland",
+              "localPrice": 7.3,
+              "usdPrice": 9.08,
+              "ppp": 1.48,
+              "valuation": 48.43,
+              "status": "overvalued",
+              "currency": "CHF",
+              "rate": 0.8036
+            },
+            {
+              "country": "🇦🇺 Australia",
+              "localPrice": 8.5,
+              "usdPrice": 5.69,
+              "ppp": 0.93,
+              "valuation": -6.95,
+              "status": "fair",
+              "currency": "AUD",
+              "rate": 0.6699499999999993
+            },
+            {
+              "country": "🇨🇦 Canada",
+              "localPrice": 7.7,
+              "usdPrice": 5.54,
+              "ppp": 0.91,
+              "valuation": -9.44,
+              "status": "fair",
+              "currency": "CAD",
+              "rate": 1.38925
+            },
+            {
+              "country": "🇧🇷 Brazil",
+              "localPrice": 23.9,
+              "usdPrice": 4.45,
+              "ppp": 0.73,
+              "valuation": -27.28,
+              "status": "undervalued",
+              "currency": "BRL",
+              "rate": 5.37035
+            },
+            {
+              "country": "🇮🇳 India",
+              "localPrice": 227,
+              "usdPrice": 2.51,
+              "ppp": 0.41,
+              "valuation": -58.92,
+              "status": "undervalued",
+              "currency": "INR",
+              "rate": 90.295
+            },
+            {
+              "country": "🇹🇭 Thailand",
+              "localPrice": 135,
+              "usdPrice": 4.3,
+              "ppp": 0.7,
+              "valuation": -29.74,
+              "status": "undervalued",
+              "currency": "THB",
+              "rate": 31.395
+            },
+            {
+              "country": "🇸🇬 Singapore",
+              "localPrice": 7.45,
+              "usdPrice": 5.78,
+              "ppp": 0.94,
+              "valuation": -5.52,
+              "status": "fair",
+              "currency": "SGD",
+              "rate": 1.28845
+            },
+            {
+              "country": "🇭🇰 Hong Kong",
+              "localPrice": 25,
+              "usdPrice": 3.21,
+              "ppp": 0.52,
+              "valuation": -47.61,
+              "status": "undervalued",
+              "currency": "HKD",
+              "rate": 7.7974
+            }
+          ],
+          "basePrice": 6.12,
+          "sourceDate": "2026-01-01",
+          "timestamp": "2026-07-31T22:17:09.459Z"
+        },
+        {
+          "countries": [
+            {
+              "country": "🇺🇸 United States",
+              "localPrice": 6.12,
+              "usdPrice": 6.12,
+              "ppp": 1,
+              "rawIdx": 0,
+              "status": "baseline",
+              "currency": "USD",
+              "rate": 1
+            },
+            {
+              "country": "🇹🇼 Taiwan",
+              "localPrice": 78,
+              "usdPrice": 2.47,
+              "ppp": 0.4,
+              "valuation": -59.63,
+              "status": "undervalued",
+              "currency": "TWD",
+              "rate": 31.5675
+            },
+            {
+              "country": "🇨🇳 China",
+              "localPrice": 25.5,
+              "usdPrice": 3.66,
+              "ppp": 0.6,
+              "valuation": -40.16,
+              "status": "undervalued",
+              "currency": "CNY",
+              "rate": 6.9627
+            },
+            {
+              "country": "🇯🇵 Japan",
+              "localPrice": 480,
+              "usdPrice": 3.03,
+              "ppp": 0.49,
+              "valuation": -50.53,
+              "status": "undervalued",
+              "currency": "JPY",
+              "rate": 158.545
+            },
+            {
+              "country": "🇰🇷 South Korea",
+              "localPrice": 5500,
+              "usdPrice": 3.74,
+              "ppp": 0.61,
+              "valuation": -38.86,
+              "status": "undervalued",
+              "currency": "KRW",
+              "rate": 1469.85
+            },
+            {
+              "country": "🇬🇧 Britain",
+              "localPrice": 5.29,
+              "usdPrice": 7.08,
+              "ppp": 1.16,
+              "valuation": 15.7,
+              "status": "overvalued",
+              "currency": "GBP",
+              "rate": 1.3385447341650158
+            },
+            {
+              "country": "🇪🇺 Euro area",
+              "localPrice": 6.08,
+              "usdPrice": 7.05,
+              "ppp": 1.15,
+              "valuation": 15.26,
+              "status": "overvalued",
+              "currency": "EUR",
+              "rate": 1.1602004826434007
+            },
+            {
+              "country": "🇨🇭 Switzerland",
+              "localPrice": 7.3,
+              "usdPrice": 9.08,
+              "ppp": 1.48,
+              "valuation": 48.43,
+              "status": "overvalued",
+              "currency": "CHF",
+              "rate": 0.8036
+            },
+            {
+              "country": "🇦🇺 Australia",
+              "localPrice": 8.5,
+              "usdPrice": 5.69,
+              "ppp": 0.93,
+              "valuation": -6.95,
+              "status": "fair",
+              "currency": "AUD",
+              "rate": 0.6699499999999993
+            },
+            {
+              "country": "🇨🇦 Canada",
+              "localPrice": 7.7,
+              "usdPrice": 5.54,
+              "ppp": 0.91,
+              "valuation": -9.44,
+              "status": "fair",
+              "currency": "CAD",
+              "rate": 1.38925
+            },
+            {
+              "country": "🇧🇷 Brazil",
+              "localPrice": 23.9,
+              "usdPrice": 4.45,
+              "ppp": 0.73,
+              "valuation": -27.28,
+              "status": "undervalued",
+              "currency": "BRL",
+              "rate": 5.37035
+            },
+            {
+              "country": "🇮🇳 India",
+              "localPrice": 227,
+              "usdPrice": 2.51,
+              "ppp": 0.41,
+              "valuation": -58.92,
+              "status": "undervalued",
+              "currency": "INR",
+              "rate": 90.295
+            },
+            {
+              "country": "🇹🇭 Thailand",
+              "localPrice": 135,
+              "usdPrice": 4.3,
+              "ppp": 0.7,
+              "valuation": -29.74,
+              "status": "undervalued",
+              "currency": "THB",
+              "rate": 31.395
+            },
+            {
+              "country": "🇸🇬 Singapore",
+              "localPrice": 7.45,
+              "usdPrice": 5.78,
+              "ppp": 0.94,
+              "valuation": -5.52,
+              "status": "fair",
+              "currency": "SGD",
+              "rate": 1.28845
+            },
+            {
+              "country": "🇭🇰 Hong Kong",
+              "localPrice": 25,
+              "usdPrice": 3.21,
+              "ppp": 0.52,
+              "valuation": -47.61,
+              "status": "undervalued",
+              "currency": "HKD",
+              "rate": 7.7974
+            }
+          ],
+          "basePrice": 6.12,
+          "sourceDate": "2026-01-01",
+          "timestamp": "2026-06-30T22:17:08.386Z"
+        }
+      ],
+      "copper-gold": [
+        {
+          "ratio": 3.351,
+          "ratioYoY": 22.98,
+          "treasury10Y": 5.29,
+          "divergence": 0.72,
+          "goldSource": "world-bank-pink-sheet",
+          "indexValue": 92.47,
+          "signal": "Industrial Boom",
+          "trend": "up",
+          "rawScore": 22.98,
+          "zScore": 2.5079481229049505,
+          "dataMonth": "2026-09",
+          "formulaVersion": "1.0",
+          "timestamp": "2026-11-23T02:00:06.859Z"
+        },
+        {
+          "ratio": 3.249,
+          "ratioYoY": 13.14,
+          "treasury10Y": 4.75,
+          "divergence": 0.68,
+          "goldSource": "world-bank-pink-sheet",
+          "indexValue": 87.32,
+          "signal": "Industrial Boom",
+          "trend": "up",
+          "rawScore": 13.14,
+          "zScore": 1.929372576386541,
+          "dataMonth": "2026-08",
+          "timestamp": "2026-08-01T04:00:00.000Z",
+          "formulaVersion": "1.0"
+        },
+        {
+          "ratio": 3.325,
+          "ratioYoY": 13.66,
+          "treasury10Y": 4.75,
+          "divergence": 0.85,
+          "goldSource": "world-bank-pink-sheet",
+          "indexValue": 89.11,
+          "signal": "Industrial Boom",
+          "trend": "up",
+          "rawScore": 13.66,
+          "zScore": 2.1023798462391534,
+          "dataMonth": "2026-07",
+          "timestamp": "2026-07-01T04:00:00.000Z",
+          "formulaVersion": "1.0"
+        },
+        {
+          "ratio": 3.2053,
+          "ratioYoY": 9.28,
+          "treasury10Y": 4.44,
+          "divergence": 0.94,
+          "goldSource": "world-bank-pink-sheet",
+          "indexValue": 86.76,
+          "signal": "Industrial Boom",
+          "trend": "up",
+          "rawScore": 9.28,
+          "zScore": 1.8797201716074672,
+          "dataMonth": "2026-06",
+          "timestamp": "2026-06-01T04:00:00.000Z",
+          "formulaVersion": "1.0"
+        },
+        {
+          "ratio": 2.9458,
+          "ratioYoY": 2.27,
+          "treasury10Y": 4.45,
+          "divergence": 0.44,
+          "goldSource": "world-bank-pink-sheet",
+          "indexValue": 80.08,
+          "signal": "Industrial Boom",
+          "trend": "up",
+          "rawScore": 2.27,
+          "zScore": 1.3913240723358988,
+          "dataMonth": "2026-05",
+          "timestamp": "2026-05-01T04:00:00.000Z",
+          "formulaVersion": "1.0"
+        },
+        {
+          "ratio": 2.7305,
+          "ratioYoY": -4.21,
+          "treasury10Y": 4.4,
+          "divergence": 0.01,
+          "goldSource": "world-bank-pink-sheet",
+          "indexValue": 71.24,
+          "signal": "Industrial Boom",
+          "trend": "up",
+          "rawScore": -4.21,
+          "zScore": 0.907218183520015,
+          "dataMonth": "2026-04",
+          "timestamp": "2026-04-01T04:00:00.000Z",
+          "formulaVersion": "1.0"
+        }
+      ],
+      "gold-oil": [
+        {
+          "goldOilRatio": 38.16,
+          "goldOilRatioYoY": -41.94,
+          "wtiOilPrice": 107.56,
+          "breakeven10Y": 2.34,
+          "goldSource": "world-bank-pink-sheet",
+          "indexValue": 13.1,
+          "signal": "Stagflation Shock",
+          "trend": "down",
+          "rawScore": -3.67,
+          "zScore": -1.8925804808395292,
+          "dataMonth": "2026-10",
+          "formulaVersion": "1.0",
+          "timestamp": "2026-11-23T01:50:04.625Z"
+        },
+        {
+          "goldOilRatio": 44.44,
+          "goldOilRatioYoY": -23.47,
+          "wtiOilPrice": 97.18,
+          "breakeven10Y": 2.36,
+          "goldSource": "world-bank-pink-sheet",
+          "indexValue": 19.34,
+          "signal": "Stagflation Shock",
+          "trend": "down",
+          "rawScore": 15.87,
+          "zScore": -1.4282089293107365,
+          "dataMonth": "2026-09",
+          "timestamp": "2026-09-01T04:00:00.000Z",
+          "formulaVersion": "1.0"
+        },
+        {
+          "goldOilRatio": 50.68,
+          "goldOilRatioYoY": -3.15,
+          "wtiOilPrice": 87.03,
+          "breakeven10Y": 2.31,
+          "goldSource": "world-bank-pink-sheet",
+          "indexValue": 29,
+          "signal": "Stagflation Shock",
+          "trend": "down",
+          "rawScore": 36.57,
+          "zScore": -0.8952910402437855,
+          "dataMonth": "2026-08",
+          "timestamp": "2026-08-01T04:00:00.000Z",
+          "formulaVersion": "1.0"
+        },
+        {
+          "goldOilRatio": 47.27,
+          "goldOilRatioYoY": -0.42,
+          "wtiOilPrice": 86.16,
+          "breakeven10Y": 2.28,
+          "goldSource": "world-bank-pink-sheet",
+          "indexValue": 27.26,
+          "signal": "Stagflation Shock",
+          "trend": "down",
+          "rawScore": 34.25,
+          "zScore": -0.9815015916616096,
+          "dataMonth": "2026-07",
+          "timestamp": "2026-07-01T04:00:00.000Z",
+          "formulaVersion": "1.0"
+        },
+        {
+          "goldOilRatio": 59.92,
+          "goldOilRatioYoY": 18.49,
+          "wtiOilPrice": 70.56,
+          "breakeven10Y": 2.24,
+          "goldSource": "world-bank-pink-sheet",
+          "indexValue": 43.69,
+          "signal": "Energy Inflation",
+          "trend": "stable",
+          "rawScore": 61.72,
+          "zScore": -0.25392385964266645,
+          "dataMonth": "2026-06",
+          "timestamp": "2026-06-01T04:00:00.000Z",
+          "formulaVersion": "1.0"
+        },
+        {
+          "goldOilRatio": 50.32,
+          "goldOilRatioYoY": -6.54,
+          "wtiOilPrice": 91.16,
+          "breakeven10Y": 2.38,
+          "goldSource": "world-bank-pink-sheet",
+          "indexValue": 26.66,
+          "signal": "Stagflation Shock",
+          "trend": "down",
+          "rawScore": 33.93,
+          "zScore": -1.011704560389013,
+          "dataMonth": "2026-05",
+          "timestamp": "2026-05-01T04:00:00.000Z",
+          "formulaVersion": "1.0"
+        }
+      ],
+      "breakfast-inflation": [
+        {
+          "eggPrice": 2.32,
+          "eggYoY": -33.49,
+          "coffeePrice": 9.25,
+          "coffeeYoY": 1.2,
+          "baconPrice": 6.69,
+          "baconYoY": -8.29,
+          "basketCost": 18.26,
+          "basketYoY": -15.52,
+          "indexValue": 28.15,
+          "signal": "Deflationary Bargain",
+          "trend": "down",
+          "rawScore": -15.52,
+          "zScore": -0.9368898406499969,
+          "dataMonth": "2026-10",
+          "formulaVersion": "1.0",
+          "timestamp": "2026-11-23T01:55:04.539Z"
+        },
+        {
+          "eggPrice": 2.27,
+          "eggYoY": -34.86,
+          "coffeePrice": 9.33,
+          "coffeeYoY": 2.11,
+          "baconPrice": 6.76,
+          "baconYoY": -7.33,
+          "basketCost": 18.36,
+          "basketYoY": -15.51,
+          "indexValue": 27.7,
+          "signal": "Deflationary Bargain",
+          "trend": "down",
+          "rawScore": -15.51,
+          "zScore": -0.9592162254452653,
+          "dataMonth": "2026-09",
+          "timestamp": "2026-09-01T04:00:00.000Z",
+          "formulaVersion": "1.0"
+        },
+        {
+          "eggPrice": 2.27,
+          "eggYoY": -36.66,
+          "coffeePrice": 9.3,
+          "coffeeYoY": 4.81,
+          "baconPrice": 6.61,
+          "baconYoY": -8.37,
+          "basketCost": 18.18,
+          "basketYoY": -15.73,
+          "indexValue": 27.01,
+          "signal": "Deflationary Bargain",
+          "trend": "down",
+          "rawScore": -15.73,
+          "zScore": -0.9941303273903085,
+          "dataMonth": "2026-08",
+          "timestamp": "2026-08-01T04:00:00.000Z",
+          "formulaVersion": "1.0"
+        },
+        {
+          "eggPrice": 2.19,
+          "eggYoY": -39.18,
+          "coffeePrice": 9.32,
+          "coffeeYoY": 10.73,
+          "baconPrice": 6.58,
+          "baconYoY": -7.5,
+          "basketCost": 18.09,
+          "basketYoY": -14.7,
+          "indexValue": 27.44,
+          "signal": "Deflationary Bargain",
+          "trend": "down",
+          "rawScore": -14.7,
+          "zScore": -0.9724811800701654,
+          "dataMonth": "2026-07",
+          "timestamp": "2026-07-01T04:00:00.000Z",
+          "formulaVersion": "1.0"
+        },
+        {
+          "eggPrice": 2.14,
+          "eggYoY": -43.28,
+          "coffeePrice": 9.46,
+          "coffeeYoY": 16.29,
+          "baconPrice": 6.56,
+          "baconYoY": -7.57,
+          "basketCost": 18.16,
+          "basketYoY": -14.7,
+          "indexValue": 26.91,
+          "signal": "Deflationary Bargain",
+          "trend": "down",
+          "rawScore": -14.7,
+          "zScore": -0.999103094771491,
+          "dataMonth": "2026-06",
+          "timestamp": "2026-06-01T04:00:00.000Z",
+          "formulaVersion": "1.0"
+        },
+        {
+          "eggPrice": 2.19,
+          "eggYoY": -51.82,
+          "coffeePrice": 9.51,
+          "coffeeYoY": 19.92,
+          "baconPrice": 6.71,
+          "baconYoY": -3.91,
+          "basketCost": 18.41,
+          "basketYoY": -15.93,
+          "indexValue": 25.23,
+          "signal": "Deflationary Bargain",
+          "trend": "down",
+          "rawScore": -15.93,
+          "zScore": -1.0866122625060666,
+          "dataMonth": "2026-05",
+          "timestamp": "2026-05-01T04:00:00.000Z",
+          "formulaVersion": "1.0"
+        }
+      ]
+    }
+  },
+  "meta": {
+    "provider": "AltMacro Quant Data (engineered by stalter, https://stalter.work)",
+    "license": "CC BY 4.0 (Stalter Derived Quantitative Output)",
+    "subscriptionTier": "ULTRA",
+    "attributions": [
+      "Contains local price data adapted from The Economist Big Mac Index dataset (CC BY 4.0).",
+      "This product uses the FRED® API but is not endorsed or certified by the Federal Reserve Bank of St. Louis.",
+      "Contains commodity benchmark data adapted from World Bank Commodity Price Data (The Pink Sheet, CC BY 4.0).",
+      "Derived indices incorporate IMF Primary Commodity Price System series retrieved via FRED; IMF does not endorse this product."
+    ],
+    "disclaimer": "For macroeconomic, statistical, and quantitative research purposes only. Does not constitute investment advice, securities recommendations, or regulated advisory services.",
+    "redactedRawFields": [
+      "copperPrice",
+      "goldPrice"
+    ],
+    "redistributionPolicy": "Authorized for personal quantitative research, algorithmic backtesting, and internal AI agent workflows under RapidAPI Basic/Pro/Ultra plans. Commercial newsletter republication and raw upstream resale are prohibited."
+  }
+}

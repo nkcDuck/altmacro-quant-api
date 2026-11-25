@@ -1,0 +1,92 @@
+{
+  "success": true,
+  "data": {
+    "overallRegime": "Expansion",
+    "avgProCyclicalIndex": 65.39,
+    "breadth": {
+      "expansionCount": 2,
+      "neutralCount": 2,
+      "stressCount": 0,
+      "missingCount": 0
+    },
+    "dimensions": [
+      {
+        "dimension": 2,
+        "name": "Physical Manufacturing, Packaging & Capex",
+        "avgIndexValue": 65.39,
+        "avgZScore": 0.9207,
+        "slugs": [
+          "cardboard",
+          "heavy-truck",
+          "electricity-pulse",
+          "skyscraper"
+        ]
+      }
+    ],
+    "bigMacPppSummary": null,
+    "indices": {
+      "cardboard": {
+        "slug": "cardboard",
+        "dimension": 2,
+        "indexValue": 51.49,
+        "zScore": 0.0595,
+        "signal": "Neutral",
+        "trend": "stable",
+        "dataMonth": "2026-09",
+        "stance": "neutral"
+      },
+      "heavy-truck": {
+        "slug": "heavy-truck",
+        "dimension": 2,
+        "indexValue": 95.26,
+        "zScore": 3,
+        "signal": "Fleet Expansion",
+        "trend": "up",
+        "dataMonth": "2026-10",
+        "stance": "expansion"
+      },
+      "electricity-pulse": {
+        "slug": "electricity-pulse",
+        "dimension": 2,
+        "indexValue": 47.32,
+        "zScore": -0.1072,
+        "signal": "Steady Load",
+        "trend": "stable",
+        "dataMonth": "2026-10",
+        "stance": "neutral"
+      },
+      "skyscraper": {
+        "slug": "skyscraper",
+        "dimension": 2,
+        "indexValue": 67.49,
+        "zScore": 0.7305,
+        "signal": "Commercial Boom",
+        "trend": "up",
+        "dataMonth": "2026-09",
+        "stance": "expansion"
+      }
+    },
+    "scope": {
+      "dimensions": [
+        2
+      ],
+      "categories": [
+        "manufacturing"
+      ]
+    },
+    "timeFilter": {
+      "mode": "latest"
+    }
+  },
+  "meta": {
+    "provider": "AltMacro Quant Data (engineered by stalter, https://stalter.work)",
+    "license": "CC BY 4.0 (Stalter Derived Quantitative Output)",
+    "subscriptionTier": "ULTRA",
+    "attributions": [
+      "This product uses the FRED® API but is not endorsed or certified by the Federal Reserve Bank of St. Louis."
+    ],
+    "disclaimer": "For macroeconomic, statistical, and quantitative research purposes only. Does not constitute investment advice, securities recommendations, or regulated advisory services.",
+    "redactedRawFields": [],
+    "redistributionPolicy": "Authorized for personal quantitative research, algorithmic backtesting, and internal AI agent workflows under RapidAPI Basic/Pro/Ultra plans. Commercial newsletter republication and raw upstream resale are prohibited."
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "success": true,
+  "data": {
+    "status": "ok",
+    "service": "altIndicesApi",
+    "version": "1.2.0",
+    "subscriptionTier": "ULTRA",
+    "indicesTracked": 15,
+    "l1CachedIndices": 15
+  },
+  "meta": {
+    "provider": "AltMacro Quant Data (engineered by stalter, https://stalter.work)",
+    "license": "CC BY 4.0 (Stalter Derived Quantitative Output)",
+    "subscriptionTier": "ULTRA",
+    "attributions": [
+      "Contains local price data adapted from The Economist Big Mac Index dataset (CC BY 4.0).",
+      "This product uses the FRED® API but is not endorsed or certified by the Federal Reserve Bank of St. Louis.",
+      "Corporate revenue fundamentals are parsed from public U.S. SEC EDGAR XBRL filings.",
+      "Contains commodity benchmark data adapted from World Bank Commodity Price Data (The Pink Sheet, CC BY 4.0).",
+      "Derived indices incorporate IMF Primary Commodity Price System series retrieved via FRED; IMF does not endorse this product."
+    ],
+    "disclaimer": "For macroeconomic, statistical, and quantitative research purposes only. Does not constitute investment advice, securities recommendations, or regulated advisory services.",
+    "redactedRawFields": [
+      "copperPrice",
+      "goldPrice",
+      "cocoaPrice"
+    ],
+    "redistributionPolicy": "Authorized for personal quantitative research, algorithmic backtesting, and internal AI agent workflows under RapidAPI Basic/Pro/Ultra plans. Commercial newsletter republication and raw upstream resale are prohibited."
+  }
+}
